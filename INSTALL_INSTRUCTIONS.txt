@@ -1,0 +1,162 @@
+================================================================================
+                    PRARTHI ERP - INSTALLATION INSTRUCTIONS
+                              Version 2.0
+================================================================================
+
+STEP 1: PREPARE FOLDER
+----------------------
+1. Open File Explorer
+2. Go to: C:\Users\Admin\Desktop\PrarthiERP
+3. Delete these OLD files (if present):
+   - pages\10_vendor_registration.py
+   - pages\11_vendor_library.py
+   - data\prarthi_erp.db (to start fresh)
+
+4. Keep these files:
+   - google_credentials.json (your AI credentials)
+
+
+STEP 2: DOWNLOAD NEW FILES
+--------------------------
+Download and place these files:
+
+Root folder (C:\Users\Admin\Desktop\PrarthiERP\):
+   - app.py
+   - config.py
+   - database.py
+   - requirements.txt
+
+Pages folder (C:\Users\Admin\Desktop\PrarthiERP\pages\):
+   - 01_Vendor_Registration.py
+   - 02_Vendor_Library.py
+
+
+STEP 3: FINAL FOLDER STRUCTURE
+------------------------------
+PrarthiERP/
+├── app.py
+├── config.py
+├── database.py
+├── requirements.txt
+├── google_credentials.json
+├── pages/
+│   ├── 01_Vendor_Registration.py
+│   └── 02_Vendor_Library.py
+├── data/                          (auto-created)
+│   └── prarthi_erp.db
+└── documents/                     (auto-created)
+    └── V-0001/
+        ├── gst_certificate.pdf
+        ├── pan_card.jpg
+        └── bank_document.pdf
+
+
+STEP 4: INSTALL DEPENDENCIES
+----------------------------
+1. Open Command Prompt (cmd)
+2. Run these commands:
+
+   cd C:\Users\Admin\Desktop\PrarthiERP
+   python -m pip install streamlit sqlalchemy bcrypt --break-system-packages
+   python -m pip install google-cloud-documentai --break-system-packages
+   python -m pip install reportlab --break-system-packages
+
+
+STEP 5: RUN THE APPLICATION
+---------------------------
+In Command Prompt:
+
+   cd C:\Users\Admin\Desktop\PrarthiERP
+   python -m streamlit run app.py
+
+Browser will open automatically at: http://localhost:8502
+
+
+STEP 6: LOGIN CREDENTIALS
+-------------------------
+Use these to login:
+
+   Purchase Team:
+   Username: purchase_user
+   Password: Purchase@123
+
+   Accounts Team:
+   Username: accounts_user
+   Password: Accounts@123
+
+   Admin/Management:
+   Username: admin
+   Password: Admin@123
+
+
+================================================================================
+                              FEATURES
+================================================================================
+
+VENDOR REGISTRATION
+-------------------
+- 4-step wizard (GST → Basic info → Contact → Bank)
+- AI auto-fill toggle (optional)
+- Manual entry without documents
+- Document preview on upload
+- PAN validation against GSTIN
+- Bank details extraction from cheque
+- Documents saved to folders
+
+
+VENDOR LIBRARY
+--------------
+- Wide table view with all columns
+- Search by name, GSTIN, code
+- Filter by status, category
+- View full vendor details
+- View uploaded documents
+- Download vendor PDF
+- Export all vendors
+
+
+================================================================================
+                              TROUBLESHOOTING
+================================================================================
+
+ERROR: "Please login first"
+---------------------------
+Clear browser cache and refresh, or open in incognito mode.
+
+
+ERROR: "Module not found"
+-------------------------
+Run: python -m pip install <module_name> --break-system-packages
+
+
+ERROR: "Credentials not found"
+------------------------------
+Ensure google_credentials.json is in PrarthiERP folder.
+AI features will still work manually without credentials.
+
+
+ERROR: "Database locked"
+------------------------
+Close all browser tabs and restart the application.
+
+
+TO START FRESH
+--------------
+Delete: data\prarthi_erp.db
+Delete: documents\ folder
+Restart the application
+
+
+================================================================================
+                              SUPPORT
+================================================================================
+
+For issues, check:
+1. All files are in correct locations
+2. Python is installed (python --version)
+3. All packages are installed
+4. No other Streamlit apps running on same port
+
+================================================================================
+                    © 2026 Prarthi Bhambere Limited
+================================================================================
